@@ -1,4 +1,4 @@
-pip install -r requirements.txt
+pip freeze > requirements.txt
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
