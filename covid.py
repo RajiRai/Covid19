@@ -45,7 +45,7 @@ circle_radius = circel_range(margin)
 map_heading = html.H2(children='Global Covid19 Overview', className='mt-5 py-4 pb-3 text-center')
 
 # ploting the map
-map_fig = px.scatter_mapbox(country, lat="Lat", lon="Long", hover_name="Country", hover_data=["Confirmed", "Deaths"],
+map_fig = px.scatter_mapbox(country, lat="Lat", lon="Long", hover_name="Country", hover_data=["Confirmed", "Deaths","Recovered"],
                         color_discrete_sequence=["#e60039"], zoom=2, height=500, size_max=50, size=circle_radius)
 
 map_fig.update_layout(mapbox_style="open-street-map", margin={"r":0,"t":0,"l":0,"b":0}, height=520)
