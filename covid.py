@@ -1,4 +1,3 @@
-
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -9,7 +8,6 @@ import plotly
 
 import pandas as pd
 import numpy as np
-from datetime import datetime
 from scipy.interpolate import interp1d
 
 import plotly.graph_objects as go
@@ -36,23 +34,15 @@ country['Confirmed']=country['Confirmed'].astype(int)
 country['Deaths']=country['Deaths'].astype(int)
 country['Active']=country['Active'].astype(int)
 
-country.sort_values('Confirmed', ascending=False, inplace=True)
 
 # fixing the size of circle to plot in the map
 
 margin = country['Confirmed'].values.tolist()
 circel_range = interp1d([1, max(margin)], [0.2,12])
 circle_radius = circel_range(margin)
-
-# main layout for Dash
-
-
-          
  
 
-# global map heading
-
-global_map_heading = html.H2(children='World map view', className='mt-5 py-4 pb-3 text-center')
+map_heading = html.H2(children='Global Covid19 Overview', className='mt-5 py-4 pb-3 text-center')
 
 # ploting the map
 map_fig = px.scatter_mapbox(country, lat="Lat", lon="Long", hover_name="Country", hover_data=["Confirmed", "Deaths"],
@@ -60,7 +50,7 @@ map_fig = px.scatter_mapbox(country, lat="Lat", lon="Long", hover_name="Country"
 
 map_fig.update_layout(mapbox_style="open-street-map", margin={"r":0,"t":0,"l":0,"b":0}, height=520)
 
-app.layout =  html.Div(children = [global_map_heading,
+app.layout =  html.Div(children = [map_heading,
          dcc.Graph(
              id='global_graph',
              figure=map_fig
