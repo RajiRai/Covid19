@@ -1,1 +1,1 @@
-web: gunicorn "covid2020global":server
+web: gunicorn "covid.py":server
