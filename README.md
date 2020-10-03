@@ -33,4 +33,3 @@ heroku ps:scale web=1
 heroku open
 That's it! Your dashboard is now deployed to Heroku with a custom URL like https://covid2020global.herokuapp.com/
 
-Ref: https://medium.com/next-gen-machine-learning/interactive-covid-19-analysis-dashboard-with-dash-c0da1008b00
